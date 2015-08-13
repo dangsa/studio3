@@ -162,8 +162,8 @@ public class JSLocationIdentifier extends JSTreeWalker
 		if (ast == null)
 		{
 			this._type = LocationType.IN_GLOBAL;
-
-			this._replaceRange = new Range(actualOffset, actualOffset - 1);
+			//fix html editor js contentassist bug:first char not right contentassist
+			this._replaceRange = new Range(actualOffset - 1, actualOffset);
 		}
 		else if (ast instanceof JSParseRootNode)
 		{
